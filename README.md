@@ -26,7 +26,7 @@
 
 * 可配置自己的布局
 * 支持RecycleView下拉刷新
-* 支持ScrollView以及NestedScrollView下拉刷新
+* 支持ScrollView以及NestedScrollView下拉刷新 需要继承RefreshScrollView或者RefreshNestedScrollView类
 * 支持布局下拉刷新
 * 上拉加载暂不支持 可自己在RecycleView 最后一条添加上拉加载功能
 
