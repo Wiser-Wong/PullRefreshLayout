@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wiser.refresh.RefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/background"
+        app:refreshHeaderLayoutId="@layout/header"
+        app:refreshIsDefault="true">
+
+        <!--<com.wiser.refresh.RefreshHeaderLayout-->
+        <!--android:id="@+id/header_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="ddddd"/>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+
+        <!--<com.wiser.refresh.view.RefreshNestedScrollView-->
+        <!--android:id="@+id/scrollView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="#ffffff">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="50dp"-->
+        <!--android:text="ScrollView"-->
+        <!--android:textSize="40sp" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--</com.wiser.refresh.view.RefreshNestedScrollView>-->
+
+    </com.wiser.refresh.RefreshLayout>
+</FrameLayout>

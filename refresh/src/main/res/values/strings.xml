@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">refresh</string>
+
+    <string name="refresh_pull_down_tip">下拉可以刷新</string>
+    <string name="refresh_release_tip">释放立即刷新</string>
+    <string name="refresh_being_tip">正在刷新中</string>
+    <string name="refresh_finish_tip">刷新完成</string>
+    <string name="refresh_last_time_tip">上次刷新时间</string>
+
+</resources>
