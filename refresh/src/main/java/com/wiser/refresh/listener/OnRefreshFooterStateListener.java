@@ -5,7 +5,8 @@ package com.wiser.refresh.listener;
  * 
  *         刷新状态监听
  */
-public interface OnRefreshStateListener {
+public interface OnRefreshFooterStateListener {
 
-	void onRefreshState(int state);
+	void onRefreshFooterState(int state);
+
 }

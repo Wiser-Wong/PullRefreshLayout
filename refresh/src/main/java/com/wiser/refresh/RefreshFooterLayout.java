@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import com.wiser.refresh.listener.OnRefreshHeaderStateListener;
+import com.wiser.refresh.listener.OnRefreshFooterStateListener;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -24,11 +24,11 @@ import android.widget.TextView;
  *         <p>
  *         刷新头部布局
  */
-public class RefreshHeaderLayout extends FrameLayout implements OnRefreshHeaderStateListener {
+public class RefreshFooterLayout extends FrameLayout implements OnRefreshFooterStateListener {
 
 	private AppCompatImageView	ivLoading;
 
-	private TextView			tvPullDownTip;
+	private TextView			tvPullUpTip;
 
 	private int					refreshState;	// 刷新状态
 
@@ -36,20 +36,20 @@ public class RefreshHeaderLayout extends FrameLayout implements OnRefreshHeaderS
 
 	private RefreshLayout		refreshLayout;
 
-	public RefreshHeaderLayout(@NonNull Context context) {
+	public RefreshFooterLayout(@NonNull Context context) {
 		super(context);
 		initView(context);
 	}
 
-	public RefreshHeaderLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+	public RefreshFooterLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
 		super(context, attrs);
 		initView(context);
 	}
 
 	private void initView(Context context) {
-		View view = LayoutInflater.from(context).inflate(R.layout.refresh_header, this, false);
-		ivLoading = view.findViewById(R.id.iv_loading);
-		tvPullDownTip = view.findViewById(R.id.tv_pull_down_tip);
+		View view = LayoutInflater.from(context).inflate(R.layout.refresh_footer, this, false);
+		ivLoading = view.findViewById(R.id.iv_footer_loading);
+		tvPullUpTip = view.findViewById(R.id.tv_pull_up_tip);
 
 		setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		addView(view);
@@ -58,14 +58,14 @@ public class RefreshHeaderLayout extends FrameLayout implements OnRefreshHeaderS
 	public void setRefreshLayout(RefreshLayout refreshLayout) {
 		if (this.refreshLayout != null) return;
 		this.refreshLayout = refreshLayout;
-		if (this.refreshLayout != null) this.refreshLayout.setOnRefreshHeaderStateListener(this);
+		if (this.refreshLayout != null) this.refreshLayout.setOnRefreshFooterStateListener(this);
 	}
 
 	@Override protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		if (getParent() instanceof RefreshLayout) {
 			this.refreshLayout = (RefreshLayout) getParent();
-			if (this.refreshLayout != null) this.refreshLayout.setOnRefreshHeaderStateListener(this);
+			if (this.refreshLayout != null) this.refreshLayout.setOnRefreshFooterStateListener(this);
 		}
 	}
 
@@ -76,20 +76,23 @@ public class RefreshHeaderLayout extends FrameLayout implements OnRefreshHeaderS
 	 */
 	public void updateStateTip(int refreshState) {
 		switch (refreshState) {
-			case RefreshLayout.REFRESH_HEADER_NO:
-				tvPullDownTip.setText(getResources().getString(R.string.refresh_pull_down_tip));
+			case RefreshLayout.REFRESH_FOOTER_NO:
+			case RefreshLayout.REFRESH_FOOTER_PREPARE:// 准备刷新
+				tvPullUpTip.setText(getResources().getString(R.string.refresh_footer_more_tip));
+				if (ivLoading.getVisibility() == View.VISIBLE) {
+					ivLoading.setVisibility(View.GONE);
+				}
 				stopLoadingAnim();
 				break;
-			case RefreshLayout.REFRESH_HEADER_PREPARE:// 准备刷新
-				tvPullDownTip.setText(getResources().getString(R.string.refresh_release_tip));
-				stopLoadingAnim();
-				break;
-			case RefreshLayout.REFRESH_HEADER_RUNNING:// 刷新中
-				tvPullDownTip.setText(getResources().getString(R.string.refresh_being_tip));
+			case RefreshLayout.REFRESH_FOOTER_RUNNING:// 刷新中
+				if (ivLoading.getVisibility() == View.GONE) {
+					ivLoading.setVisibility(View.VISIBLE);
+				}
+				tvPullUpTip.setText(getResources().getString(R.string.refresh_footer_being_tip));
 				startLoadingAnim();
 				break;
-			case RefreshLayout.REFRESH_HEADER_END:// 刷新结束
-				tvPullDownTip.setText(getResources().getString(R.string.refresh_finish_tip));
+			case RefreshLayout.REFRESH_FOOTER_END:// 刷新结束
+				tvPullUpTip.setText(getResources().getString(R.string.refresh_footer_finish_tip));
 				break;
 		}
 	}
@@ -111,7 +114,7 @@ public class RefreshHeaderLayout extends FrameLayout implements OnRefreshHeaderS
 		if (loadingAnimator != null) loadingAnimator.cancel();
 		loadingAnimator = null;
 		ivLoading = null;
-		tvPullDownTip = null;
+		tvPullUpTip = null;
 	}
 
 	/**
@@ -140,7 +143,7 @@ public class RefreshHeaderLayout extends FrameLayout implements OnRefreshHeaderS
 		detach();
 	}
 
-	@Override public void onRefreshHeaderState(int state) {
+	@Override public void onRefreshFooterState(int state) {
 		updateStateTip(state);
 	}
 }

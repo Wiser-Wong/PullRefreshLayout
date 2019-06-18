@@ -8,4 +8,6 @@ package com.wiser.refresh.listener;
 public interface OnRefreshListener {
 
 	void pullDownRefreshing();
+
+	void pullUpRefreshing();
 }

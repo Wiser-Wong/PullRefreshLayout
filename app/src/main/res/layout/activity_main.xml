@@ -10,7 +10,9 @@
         android:layout_height="match_parent"
         android:background="@mipmap/background"
         app:refreshHeaderLayoutId="@layout/header"
-        app:refreshIsDefault="true">
+        app:refreshFooterLayoutId="@layout/footer"
+        app:refreshIsLoadMore="true"
+        app:refreshIsDefault="false">
 
         <!--<com.wiser.refresh.RefreshHeaderLayout-->
         <!--android:id="@+id/header_view"-->
@@ -26,7 +28,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rlv_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#ffffff" />
 
         <!--<com.wiser.refresh.view.RefreshNestedScrollView-->

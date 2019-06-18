@@ -6,5 +6,8 @@
     <string name="refresh_being_tip">正在刷新中</string>
     <string name="refresh_finish_tip">刷新完成</string>
     <string name="refresh_last_time_tip">上次刷新时间</string>
+    <string name="refresh_footer_being_tip">正在加载</string>
+    <string name="refresh_footer_more_tip">加载更多</string>
+    <string name="refresh_footer_finish_tip">加载完成</string>
 
 </resources>

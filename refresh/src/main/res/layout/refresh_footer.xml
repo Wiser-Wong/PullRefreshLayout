@@ -8,7 +8,7 @@
     android:padding="20dp">
 
     <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/iv_loading"
+        android:id="@+id/iv_footer_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -23,11 +23,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_pull_down_tip"
+            android:id="@+id/tv_pull_up_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:text="@string/refresh_pull_down_tip"
+            android:text="@string/refresh_footer_more_tip"
             android:textSize="14sp" />
 
     </LinearLayout>

@@ -2,6 +2,8 @@
 <resources>
     <declare-styleable name="RefreshLayout">
         <attr name="refreshHeaderLayoutId" format="reference" />
+        <attr name="refreshFooterLayoutId" format="reference" />
         <attr name="refreshIsDefault" format="boolean" />
+        <attr name="refreshIsLoadMore" format="boolean" />
     </declare-styleable>
 </resources>

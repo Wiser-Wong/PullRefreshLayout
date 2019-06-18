@@ -27,6 +27,11 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.MHolder> {
         this.list.add(0, s);
         notifyDataSetChanged();
     }
+    public void addFooterData(String s) {
+        if (this.list == null) return;
+        this.list.add(s);
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
